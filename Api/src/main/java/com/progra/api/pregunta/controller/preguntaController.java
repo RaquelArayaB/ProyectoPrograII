@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.progra.api.usuario.businesslogic.usuarioBL;
-import com.progra.api.usuario.dataAccess.usuarioRepository;
-import com.progra.api.usuario.dataTransferObject.usuarioDto;
+import com.progra.api.pregunta.bl.preguntaBL;
+import com.progra.api.pregunta.da.preguntaRepository;
+import com.progra.api.pregunta.dto.preguntaDTO;
 
 @RestController
 @CrossOrigin
@@ -18,17 +18,17 @@ import com.progra.api.usuario.dataTransferObject.usuarioDto;
 public class preguntaController {
 
     @Autowired
-    private usuarioRepository userRep;
+    private preguntaRepository preguntaRep;
 
     /**
-     * metodo que se encarga de retornar la lista de todos los usuarios
+     * metodo que se encarga de retornar la lista de todas las preguntas
      * 
      * @return
      */
     @GetMapping
-    public List<usuarioDto> userList() {
-        usuarioBL _usuarioBl = new usuarioBL(userRep);
-        return _usuarioBl.list();
+    public List<preguntaDTO> preguntaList() {
+        preguntaBL _preguntaBl = new preguntaBL(preguntaRep);
+        return _preguntaBl.list();
     }
     
 }
